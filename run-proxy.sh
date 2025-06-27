@@ -1,0 +1,2 @@
+mitmdump --set confdir=ca -s epson-readyprint.py --listen-port 8080
+#pm2 start mitmdump --interpreter=python3 --name=epson-readyprint-- --set confdir=/var/www/servers/epson-readyprint/ca --listen-port=8080 -s /var/www/servers/epson-readyprint.py
