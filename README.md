@@ -40,6 +40,28 @@ sudo systemctl start epson-readyprint-proxy.service
 ```
 
 
+## Docker
+
+Prefer to run it in a docker or pod?
+
+```bash
+# Build the container
+docker build -t epson-readyprint-proxy .
+
+# Start the service
+docker run -d \
+  --name epson-readyprint-proxy \
+  -p 8080:8080 \
+  -v epson-readyprint-ca:/app/ca \
+  --restart unless-stopped \
+  --replace \
+  epson-readyprint-proxy
+
+# View the logs
+docker logs -f epson-readyprint-proxy
+```
+
+
 ## What else?
 
 That's it. It's one find and replace to defeat this service locked printer.
