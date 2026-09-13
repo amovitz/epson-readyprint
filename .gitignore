@@ -1,2 +1,5 @@
 .history
 .DS_Store
+ca/mitm*
+__*
+.*
