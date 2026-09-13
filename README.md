@@ -2,7 +2,17 @@
 
 Have you somehow found yourself with an Epson ReadyPrint printer but no subscription?
 
-This will create a MITM proxy and tell the printer it's allowed to print!
+This will create a man-in-the-middle proxy and tell the printer it's allowed to print!
+
+
+## How it works
+
+`mitmproxy` does most of the heavy lifting. At it's core we just replace a couple registration variable booleans to basically set `isTotallyLegitPayingUser=Yes`.
+
+```JSON
+"isHalt": true    ->   "isHalt": false
+"isOptIn": false  ->   "isOptIn": true
+```
 
 
 ## Setup
