@@ -1,0 +1,16 @@
+[Unit]
+Description=mitmdump proxy for epson-readyprint
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/opt/epson-readyprint
+ExecStart=/usr/local/bin/mitmdump --set confdir=ca -s epson-readyprint.py --listen-port 8080
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/var/log/epson-readyprint-proxy.log
+StandardError=append:/var/log/epson-readyprint-proxy.log
+
+[Install]
+WantedBy=multi-user.target
